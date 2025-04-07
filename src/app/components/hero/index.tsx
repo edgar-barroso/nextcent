@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { logos } from "@/app/constants";
 
 export function Hero() {
   const container = {
@@ -157,9 +158,9 @@ export function Hero() {
             },
           }}
         >
-          {[0, 1, 2, 3, 4, 5, 6].map((i) => (
-            <motion.div key={i} variants={bounce} whileHover={{ scale: 1.1 }}>
-              <Image src={`/logo-${i}.svg`} width={50} height={50} alt="" />
+          {logos.map((logo) => (
+            <motion.div key={logo} variants={bounce} whileHover={{ scale: 1.1 }}>
+              <Image src={logo} width={50} height={50} alt="" />
             </motion.div>
           ))}
         </motion.div>

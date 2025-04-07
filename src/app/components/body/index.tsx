@@ -8,6 +8,7 @@ import {
   FaRegHandPointer,
   FaCreditCard,
 } from "react-icons/fa";
+import { logos } from "@/app/constants";
 
 export function Body() {
   const container = {
@@ -279,6 +280,78 @@ export function Body() {
             >
               Learn More
             </Link>
+          </motion.div>
+        </motion.div>
+      </motion.div>
+      <motion.div
+        className="flex px-36 py-5 gap-20 max-lg:flex-col max-lg:px-10 max-lg:gap-10 max-lg:items-center"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={container}
+      >
+        <motion.div
+          variants={slideInFromLeft}
+          className="max-lg:order-2 drop-shadow-lg"
+        >
+          <Image
+            alt="banner"
+            src={"/banner-1.png"}
+            width={326}
+            height={326}
+            className="max-md:w-[280px] max-md:h-[280px]"
+          />
+        </motion.div>
+
+        <motion.div className="flex flex-col gap-2 max-w-[700px] max-lg:text-center max-lg:items-center">
+          <motion.p className="text-neutral-grey text-sm" variants={item}>
+            Maecenas dignissim justo eget nulla rutrum molestie. Maecenas
+            lobortis sem dui, vel rutrum risus tincidunt ullamcorper. Proin eu
+            enim metus. Vivamus sed libero ornare, tristique quam in, gravida
+            enim. Nullam ut molestie arcu, at hendrerit elit. Morbi laoreet elit
+            at ligula molestie, nec molestie mi blandit. Suspendisse cursus
+            tellus sed augue ultrices, quis tristique nulla sodales. Suspendisse
+            eget lorem eu turpis vestibulum pretium. Suspendisse potenti.
+            Quisque malesuada enim sapien, vitae placerat ante feugiat eget.
+            Quisque vulputate odio neque, eget efficitur libero condimentum id.
+            Curabitur id nibh id sem dignissim finibus ac sit amet magna.
+          </motion.p>
+
+          <motion.p
+            className="text-xl text-primary font-semibold"
+            variants={item}
+          >
+            Tim Smith
+          </motion.p>
+
+          <motion.p className="text-neutral-l_grey" variants={item}>
+            British Dragon Boat Racing Association
+          </motion.p>
+
+          <motion.div
+            className="flex flex-row flex-wrap items-center justify-between pt-4 max-lg:justify-center max-lg:gap-6"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={{
+              hidden: { opacity: 0 },
+              show: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.1,
+                },
+              },
+            }}
+          >
+            {logos.map((logo) => (
+              <motion.div
+                key={logo}
+                variants={bounce}
+                whileHover={{ scale: 1.1 }}
+              >
+                <Image src={logo} width={50} height={50} alt="" />
+              </motion.div>
+            ))}
           </motion.div>
         </motion.div>
       </motion.div>
