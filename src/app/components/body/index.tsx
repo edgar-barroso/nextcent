@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import { GoArrowRight } from "react-icons/go";
 import { motion } from "framer-motion";
 import {
   FaUsers,
@@ -74,6 +75,43 @@ export function Body() {
       opacity: 1,
       y: 0,
       transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
+  const blogContainer = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  const blogItem = {
+    hidden: { opacity: 0, y: 30 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 10,
+      },
+    },
+    hover: {
+      y: -10,
+      transition: { duration: 0.3 },
+    },
+  };
+
+  const textPop = {
+    hidden: { opacity: 0, scale: 0.8 },
+    show: {
+      opacity: 1,
+      scale: 1,
+      transition: { type: "spring", stiffness: 200 },
     },
   };
 
@@ -284,7 +322,7 @@ export function Body() {
         </motion.div>
       </motion.div>
       <motion.div
-        className="flex px-36 py-5 gap-20 max-lg:flex-col max-lg:px-10 max-lg:gap-10 max-lg:items-center"
+        className="flex px-36 py-5 gap-20 max-lg:flex-col max-lg:px-10 max-lg:gap-10 max-lg:items-center justify-center"
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: "-100px" }}
@@ -352,6 +390,147 @@ export function Body() {
                 <Image src={logo} width={50} height={50} alt="" />
               </motion.div>
             ))}
+          </motion.div>
+        </motion.div>
+      </motion.div>
+      <motion.div
+        className="flex flex-col py-12 bg-neutral-white items-center gap-4 px-5"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={blogContainer}
+      >
+        <motion.h3
+          className="text-3xl font-semibold text-neutral-d_grey text-center"
+          variants={textPop}
+        >
+          Caring is the new marketing
+        </motion.h3>
+
+        <motion.p
+          className="text-neutral-grey text-sm max-w-[500px] text-center"
+          variants={textPop}
+        >
+          The Nexcent blog is the best place to read about the latest membership
+          insights, trends and more. See who&apos;s joining the community, read about
+          how our community are increasing their membership income and lot&apos;s
+          more.
+        </motion.p>
+
+        <motion.div
+          className="flex flex-wrap items-start gap-10 justify-center"
+          variants={blogContainer}
+        >
+          <motion.div
+            className="flex flex-col items-center w-full max-w-[368px]"
+            variants={blogItem}
+            whileHover="hover"
+          >
+            <motion.div variants={blogItem} className="w-full">
+              <Image
+                src={"/image1.png"}
+                alt=""
+                width={368}
+                height={286}
+                className="w-full h-auto rounded-t-lg object-cover"
+              />
+            </motion.div>
+            <motion.div
+              className="flex flex-col items-center text-center bg-neutral-silver rounded-md drop-shadow-lg p-6 -mt-20 w-[85%] mx-auto"
+              variants={blogItem}
+            >
+              <motion.p
+                className="text-neutral-grey text-lg font-semibold mb-4"
+                variants={textPop}
+              >
+                Creating Streamlined Safeguarding Processes with OneRen
+              </motion.p>
+              <motion.div
+                className="text-primary font-semibold flex items-center gap-2 cursor-pointer"
+                whileHover={{ x: 5 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <motion.a href="#" className="text-xl">
+                  Readmore
+                </motion.a>
+                <GoArrowRight size={25} />
+              </motion.div>
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            className="flex flex-col items-center w-full max-w-[368px]"
+            variants={blogItem}
+            whileHover="hover"
+          >
+            <motion.div variants={blogItem} className="w-full">
+              <Image
+                src={"/image2.png"}
+                alt=""
+                width={368}
+                height={286}
+                className="w-full h-auto rounded-t-lg object-cover"
+              />
+            </motion.div>
+            <motion.div
+              className="flex flex-col items-center text-center bg-neutral-silver rounded-md drop-shadow-lg p-6 -mt-20 w-[85%] mx-auto"
+              variants={blogItem}
+            >
+              <motion.p
+                className="text-neutral-grey text-lg font-semibold mb-4"
+                variants={textPop}
+              >
+                What are your safeguarding responsibilities and how can you
+                manage them?
+              </motion.p>
+              <motion.div
+                className="text-primary font-semibold flex items-center gap-2 cursor-pointer"
+                whileHover={{ x: 5 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <motion.a href="#" className="text-xl">
+                  Readmore
+                </motion.a>
+                <GoArrowRight size={25} />
+              </motion.div>
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            className="flex flex-col items-center w-full max-w-[368px]"
+            variants={blogItem}
+            whileHover="hover"
+          >
+            <motion.div variants={blogItem} className="w-full">
+              <Image
+                src={"/image3.png"}
+                alt=""
+                width={368}
+                height={286}
+                className="w-full h-auto rounded-t-lg object-cover"
+              />
+            </motion.div>
+            <motion.div
+              className="flex flex-col items-center text-center bg-neutral-silver rounded-md drop-shadow-lg p-6 -mt-20 w-[85%] mx-auto"
+              variants={blogItem}
+            >
+              <motion.p
+                className="text-neutral-grey text-lg font-semibold mb-4"
+                variants={textPop}
+              >
+                Revamping the Membership Model with Triathlon Australia
+              </motion.p>
+              <motion.div
+                className="text-primary font-semibold flex items-center gap-2 cursor-pointer"
+                whileHover={{ x: 5 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <motion.a href="#" className="text-xl">
+                  Readmore
+                </motion.a>
+                <GoArrowRight size={25} />
+              </motion.div>
+            </motion.div>
           </motion.div>
         </motion.div>
       </motion.div>
